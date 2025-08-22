@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Battaglia Eletronica - Reparación General</title>
+  <meta name="description" content="Soluciones electrónicas profesionales: diagnóstico, reparación, diseño y recuperación de datos.">
+  <link rel="icon" href="favicon.ico" sizes="48x48" type="image/x-icon">
+  <style>
+    :root {
+      --primary: #a259ff;
+      --background: #18181b;
+      --card: #23232a;
+      --text: #fff;
+      --subtitle: #c5c5c5;
+      --button: #a259ff;
+      --button-hover: #7a3fc7;
+      --service-icon: #a259ff;
+      --service-bg: #1f1f22;
+      --whatsapp: #25D366;
+    }
+    body {
+      margin: 0;
+      font-family: 'Inter', Arial, sans-serif;
+      background: var(--background);
+      color: var(--text);
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 32px 40px 20px;
+      background: var(--background);
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1.5em;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .logo-icon {
+      color: var(--primary);
+      font-size: 2em;
+    }
+    nav {
+      display: flex;
+      gap: 36px;
+      align-items: center;
+    }
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1.1em;
+      transition: color 0.2s;
+    }
+    nav a:hover {
+      color: var(--primary);
+    }
+    .cta {
+      background: var(--button);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 22px;
+      font-size: 1.1em;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .cta:hover {
+      background: var(--button-hover);
+    }
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 60vh;
+      text-align: center;
+      padding: 32px 20px 0;
+    }
+    .hero-title {
+      font-size: 3em;
+      font-weight: 800;
+      margin-bottom: 12px;
+      line-height: 1.1;
+    }
+    .hero-title .accent {
+      color: var(--primary);
+    }
+    .hero-desc {
+      color: var(--subtitle);
+      font-size: 1.2em;
+      margin-bottom: 32px;
+      max-width: 700px;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .hero-buttons a {
+      display: inline-block;
+      background: var(--button);
+      color: #fff;
+      border-radius: 8px;
+      padding: 12px 24px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 1em;
+      transition: background 0.2s;
+    }
+    .hero-buttons a.alt {
+      background: var(--card);
+      color: var(--text);
+      border: 1px solid var(--button);
+    }
+    .hero-buttons a:hover {
+      background: var(--button-hover);
+    }
+    .hero-buttons a.alt:hover {
+      background: var(--service-bg);
+    }
+    section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px 0 20px;
+    }
+    .services-title {
+      text-align: center;
+      font-size: 2.5em;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .services-desc {
+      text-align: center;
+      color: var(--subtitle);
+      font-size: 1.15em;
+      margin-bottom: 40px;
+    }
+    .services-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 32px;
+      margin-bottom: 36px;
+    }
+    .service-card {
+      background: var(--service-bg);
+      border-radius: 16px;
+      padding: 36px 28px;
+      box-shadow: 0 2px 10px #0004;
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      min-height: 220px;
+      position: relative;
+    }
+    .service-icon {
+      font-size: 2.3em;
+      color: var(--service-icon);
+      margin-bottom: 8px;
+    }
+    .service-title {
+      font-size: 1.25em;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .service-desc {
+      color: var(--subtitle);
+      font-size: 1em;
+    }
+    .portfolio-title { text-align: center; font-size: 2.2em; font-weight: 700; margin-bottom: 8px; margin-top: 40px;}
+    .portfolio-desc { text-align: center; color: var(--subtitle); font-size: 1.1em; margin-bottom: 32px;}
+    .portfolio-carousel-container {
+      position: relative;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto 40px auto;
+      overflow: hidden;
+    }
+    .portfolio-carousel {
+      display: flex;
+      gap: 32px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      padding-bottom: 12px;
+    }
+    .portfolio-card {
+      min-width: 340px;
+      max-width: 400px;
+      background: var(--card);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px #0004;
+      color: var(--text);
+      flex: 0 0 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0;
+      position: relative;
+    }
+    .portfolio-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      background: #d2d2d2;
+    }
+    .portfolio-info {
+      padding: 18px 16px;
+      background: linear-gradient(to top, #18181b 80%, #18181b77 100%);
+      position: relative;
+      z-index: 2;
+    }
+    .portfolio-title-card { font-size: 1.15em; font-weight: 700; margin-bottom: 6px;}
+    .portfolio-desc-card { color: var(--subtitle); font-size: 1em;}
+    .carousel-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      font-size: 2em;
+      width: 44px;
+      height: 44px;
+      cursor: pointer;
+      z-index: 10;
+      opacity: 0.80;
+      transition: background 0.2s;
+    }
+    .carousel-arrow:hover { background: var(--button-hover);}
+    .carousel-arrow.left { left: 0; }
+    .carousel-arrow.right { right: 0; }
+    @media (max-width: 700px) {
+      .carousel-arrow { display: none; }
+      header, section { padding-left: 10px; padding-right: 10px;}
+      .hero-title { font-size: 2em;}
+      .services-title, .portfolio-title { font-size: 1.4em;}
+      .services-list { grid-template-columns: 1fr;}
+      .portfolio-card { min-width: 80vw; max-width: 90vw;}
+    }
+    .whatsapp { position: fixed; bottom: 24px; right: 24px; background: var(--whatsapp); color: #fff; padding: 16px; border-radius: 50%; box-shadow: 0 2px 8px #0007; font-size: 2em; text-decoration: none; z-index: 100; transition: background 0.2s;}
+    .whatsapp:hover { background: #128C7E;}
+    footer { background: var(--card); color: #fff; text-align: center; padding: 32px 0 22px; margin-top: 40px; font-size: 1em;}
+    /* Sección de contacto */
+    #contact-form-section {
+      max-width: 600px;
+      margin: 60px auto 0 auto;
+      background: var(--card);
+      border-radius: 18px;
+      box-shadow: 0 2px 12px #0004;
+      padding: 36px 28px;
+      color: var(--text);
+    }
+    #contact-form-section h2 {
+      text-align: center;
+      font-size: 2em;
+      margin-bottom: 16px;
+    }
+    #contact-form-section p {
+      text-align: center;
+      color: var(--subtitle);
+      margin-bottom: 30px;
+    }
+    .contact-form label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      margin-top: 18px;
+    }
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      background: var(--service-bg);
+      border: 1px solid var(--primary);
+      color: var(--text);
+      border-radius: 6px;
+      padding: 10px 12px;
+      font-size: 1em;
+      margin-bottom: 12px;
+      resize: vertical;
+    }
+    .contact-form textarea { min-height: 80px; }
+    .contact-form button {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 28px;
+      font-size: 1.1em;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 10px;
+      width: 100%;
+      transition: background 0.2s;
+    }
+    .contact-form button:hover { background: var(--button-hover);}
+    .contact-direct {
+      text-align: center;
+      margin-top: 18px;
+      color: var(--subtitle);
+    }
+    .contact-direct a {
+      color: var(--primary);
+      font-weight: bold;
+      text-decoration: none;
+      margin: 0 8px;
+    }
+    .contact-direct a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo"><span class="logo-icon">🔌</span> Battaglia Eletronica</div>
+    <nav>
+      <a href="#services">Servicios</a>
+      <a href="#portfolio">Portafolio</a>
+      <a href="#contact">Contacto</a>
+    </nav>
+    <button class="cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Cotizar</button>
+  </header>
+
+  <div class="hero">
+    <div class="hero-title">
+      Reparación general de electrónica,<br>
+      <span class="accent">Perfeccionada para Ti.</span>
+    </div>
+    <div class="hero-desc">
+      Desde equipos de audio vintage hasta dispositivos digitales modernos, ofrecemos diagnósticos meticulosos, reparación y soluciones personalizadas para devolverle la vida a tus electrónicos.
+    </div>
+    <div class="hero-buttons">
+      <a href="#contact">Obtén una Cotización Gratis</a>
+      <a href="#services" class="alt">Nuestros Servicios</a>
+    </div>
+  </div>
+
+  <section id="services">
+    <div class="services-title">Nuestros Servicios</div>
+    <div class="services-desc">Soluciones integrales para todas tus necesidades electrónicas.</div>
+    <div class="services-list">
+      <div class="service-card"><span class="service-icon">🔎</span><div class="service-title">Diagnóstico y Solución de Problemas</div><div class="service-desc">Identificando la causa raíz de problemas electrónicos complejos con precisión y experiencia.</div></div>
+      <div class="service-card"><span class="service-icon">🔧</span><div class="service-title">Reparación y Reemplazo de Componentes</div><div class="service-desc">Reparación experta y reemplazo de componentes defectuosos como capacitores, resistencias y CIs.</div></div>
+      <div class="service-card"><span class="service-icon">💾</span><div class="service-title">Actualizaciones de Software y Firmware</div><div class="service-desc">Asegurando que sus dispositivos funcionen sin problemas con las últimas actualizaciones de software y firmware.</div></div>
+      <div class="service-card"><span class="service-icon">🧩</span><div class="service-title">Diseño de Circuitos Personalizados</div><div class="service-desc">Diseñando y construyendo circuitos personalizados adaptados a sus aplicaciones específicas y únicas.</div></div>
+      <div class="service-card"><span class="service-icon">📐</span><div class="service-title">Reparación y Modificación de PCB</div><div class="service-desc">Servicios especializados para reparar y modificar placas de circuito impreso de todo tipo.</div></div>
+      <div class="service-card"><span class="service-icon">🗄️</span><div class="service-title">Recuperación de Datos</div><div class="service-desc">Recuperando datos valiosos de dispositivos de almacenamiento y electrónicos dañados o defectuosos.</div></div>
+    </div>
+  </section>
+
+  <section id="portfolio">
+    <div class="portfolio-title">Nuestro Trabajo en Acción</div>
+    <div class="portfolio-desc">Un vistazo a algunos de los proyectos que hemos completado con éxito.</div>
+    <div class="portfolio-carousel-container">
+      <button class="carousel-arrow left" onclick="slideCarousel(-1)">&#8592;</button>
+      <div class="portfolio-carousel" id="portfolioCarousel">
+        <div class="portfolio-card">
+          <img class="portfolio-image" src="img/disco-duro.jpg" alt="Recuperación de Datos de Disco Duro">
+          <div class="portfolio-info">
+            <div class="portfolio-title-card">Recuperación de Datos de Disco Duro</div>
+            <div class="portfolio-desc-card">Recuperamos archivos críticos de un disco duro dañado físicamente, interviniendo con precisión en su interior para la recuperación de datos.</div>
+          </div>
+        </div>
+        <div class="portfolio-card">
+          <img class="portfolio-image" src="img/amplificador-vintage.jpg" alt="Restauración de Amplificador Vintage">
+          <div class="portfolio-info">
+            <div class="portfolio-title-card">Restauración de Amplificador Vintage</div>
+            <div class="portfolio-desc-card">Placa electrónica de potencia siendo diagnosticada y reparada con instrumental profesional.</div>
+          </div>
+        </div>
+        <div class="portfolio-card">
+          <img class="portfolio-image" src="img/laptop-gamer.jpg" alt="Reparación de GPU de Laptop Gamer">
+          <div class="portfolio-info">
+            <div class="portfolio-title-card">Reparación de GPU de Laptop Gamer</div>
+            <div class="portfolio-desc-card">Interior de laptop gamer abierta, lista para mantenimiento, reparación o actualización de sus componentes.</div>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-arrow right" onclick="slideCarousel(1)">&#8594;</button>
+    </div>
+  </section>
+
+  <section id="contact-form-section">
+    <h2 id="contact">Contacto</h2>
+    <p>¿Tenés un proyecto, consulta o necesitas cotización? Completa el formulario o comunicate directamente:</p>
+    <form class="contact-form" action="mailto:battagliamarcio.cell@gmail.com" method="post" enctype="text/plain">
+      <label for="nombre">Nombre</label>
+      <input type="text" id="nombre" name="nombre" required>
+      <label for="email">Correo electrónico</label>
+      <input type="email" id="email" name="email" required>
+      <label for="mensaje">Mensaje</label>
+      <textarea id="mensaje" name="mensaje" required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+    <div class="contact-direct">
+      <span>O escribinos por <a href="mailto:battagliamarcio.cell@gmail.com">Email</a>
+      o por <a href="https://wa.me/5491132356547" target="_blank">WhatsApp</a></span>
+    </div>
+  </section>
+
+  <a class="whatsapp" href="https://wa.me/5491132356547" target="_blank" title="Contactar por WhatsApp">💬</a>
+  <footer>
+    Battaglia Eletronica<br>
+    © 2025 Battaglia Eletronica. Todos los derechos reservados.
+  </footer>
+  <script>
+    function slideCarousel(direction) {
+      const carousel = document.getElementById("portfolioCarousel");
+      const card = carousel.querySelector('.portfolio-card');
+      const scrollAmount = card.offsetWidth + 32;
+      carousel.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>
